@@ -1,5 +1,8 @@
 import os
 
+#TeeCee (missing pip install django-heroku or pip install psycopg2-binary in requriemts.txt)
+#import django_heroku
+
 ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
 
 DEBUG = True
@@ -73,6 +76,18 @@ DATABASES = {
     }
 }
 
+#TeeCee says comment out for heroku postgres and comment above for local .dbsqlite3
+#DATABASES = {
+#    "default": {
+#        "ENGINE": "django.db.backends.postgresql",
+#        "NAME": django.db.models.BigAutoField.auto_field.db_type(connection=None),
+#        "USER": os.environ.get('DATABASE_URL'),
+#        "PASSWORD": '',
+#        "HOST": '',
+#        "PORT": '',
+#    }
+#}
+
 if ENVIRONMENT == 'production':
     DEBUG = True
     SECRET_KEY = os.getenv('SECRET_KEY')
@@ -114,3 +129,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 STRIPE_PUBLIC_KEY = 'pk_test_lX3r6OMjOU2yzFsNSHq6belT00EY82kZmH'
 STRIPE_SECRET_KEY = 'sk_test_tn0CTDaIJHUJyAqhsf39cfsC00LNjsqDnb'
+
+#TeeCee
+#django_heroku.settings(locals())
