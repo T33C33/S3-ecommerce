@@ -1,0 +1,9 @@
+services:
+  - type: web
+    runtime: python
+    name: S3-ecommerce
+    buildCommand: |
+      pip install --upgrade pip setuptools
+      pip install -r requirements.txt
+    startCommand: gunicorn demo.wsgi:application
+    
